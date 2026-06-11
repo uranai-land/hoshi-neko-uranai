@@ -1,0 +1,1012 @@
+:root {
+  --ink: #4b4650;
+  --muted: #7d7583;
+  --pink: #ffdce8;
+  --pink-strong: #ff95b8;
+  --blue: #dff2ff;
+  --blue-strong: #84c7ef;
+  --yellow: #ffe99a;
+  --cream: #fffaf0;
+  --line: #f1e7ea;
+  --shadow: 0 18px 45px rgba(203, 154, 172, 0.18);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  color: var(--ink);
+  font-family: "Hiragino Maru Gothic ProN", "Yu Gothic", "Meiryo", sans-serif;
+  line-height: 1.8;
+  background:
+    radial-gradient(circle at 12% 12%, rgba(255, 233, 154, 0.42) 0 38px, transparent 39px),
+    radial-gradient(circle at 88% 18%, rgba(223, 242, 255, 0.7) 0 54px, transparent 55px),
+    #ffffff;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background-image:
+    linear-gradient(45deg, transparent 48%, rgba(255, 215, 92, 0.45) 49% 51%, transparent 52%),
+    linear-gradient(-45deg, transparent 48%, rgba(255, 215, 92, 0.45) 49% 51%, transparent 52%);
+  background-size: 72px 72px;
+  opacity: 0.18;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  font: inherit;
+}
+
+.site-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+  padding: 18px clamp(18px, 4vw, 54px);
+  background: rgba(255, 255, 255, 0.88);
+  border-bottom: 1px solid var(--line);
+  backdrop-filter: blur(12px);
+}
+
+.logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: clamp(1.25rem, 3vw, 1.65rem);
+  font-weight: 800;
+  letter-spacing: 0;
+}
+
+.logo-mark {
+  display: grid;
+  place-items: center;
+  width: 34px;
+  height: 34px;
+  color: #d7a72c;
+  background: var(--yellow);
+  border: 2px solid #fff4bb;
+  border-radius: 50%;
+  box-shadow: 0 5px 0 rgba(255, 220, 232, 0.75);
+}
+
+.nav {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 8px 14px;
+  color: var(--muted);
+  font-size: 0.92rem;
+  font-weight: 700;
+}
+
+.nav a {
+  padding: 6px 2px;
+}
+
+.nav a:hover,
+.nav a:focus-visible {
+  color: var(--pink-strong);
+}
+
+main {
+  position: relative;
+  z-index: 1;
+}
+
+.hero,
+.about-cats,
+.weekly,
+.news {
+  width: min(1120px, calc(100% - 36px));
+  margin: 0 auto;
+}
+
+.hero {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(320px, 0.82fr);
+  gap: clamp(24px, 5vw, 58px);
+  align-items: center;
+  min-height: 620px;
+  padding: 58px 0 42px;
+}
+
+.eyebrow {
+  margin: 0 0 10px;
+  color: var(--pink-strong);
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0;
+  text-transform: uppercase;
+}
+
+h1,
+h2,
+h3,
+p {
+  overflow-wrap: anywhere;
+}
+
+h1 {
+  max-width: 760px;
+  margin: 0;
+  font-size: clamp(2rem, 5.4vw, 4rem);
+  line-height: 1.28;
+  letter-spacing: 0;
+  word-break: keep-all;
+  overflow-wrap: normal;
+}
+
+.hero-title-line {
+  display: inline-block;
+  white-space: nowrap;
+}
+
+.no-break {
+  white-space: nowrap;
+}
+
+.lead {
+  max-width: 620px;
+  margin: 22px 0 0;
+  color: var(--muted);
+  font-size: clamp(1rem, 2vw, 1.1rem);
+}
+
+.cat-cards {
+  display: grid;
+  gap: 18px;
+}
+
+.cat-card,
+.image-card,
+.about-cat-card,
+.fortune-detail,
+.zodiac-panel,
+.news-card {
+  border: 2px solid var(--line);
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.93);
+  box-shadow: var(--shadow);
+}
+
+.image-card {
+  margin: 0;
+  padding: 14px;
+  overflow: hidden;
+}
+
+.feature-image {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  border-radius: 6px;
+}
+
+.characters-image-card {
+  width: min(100%, 760px);
+  margin: 0 auto;
+  padding: 16px;
+  border-color: #f3dce6;
+  background: linear-gradient(135deg, #fff, #fff8fb 50%, #edf8ff);
+  box-shadow: 0 20px 42px rgba(255, 149, 184, 0.18), 0 6px 0 rgba(255, 233, 154, 0.38);
+}
+
+.cat-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  align-items: stretch;
+  padding: 24px;
+  overflow: hidden;
+}
+
+.cat-card::after {
+  content: "✦";
+  position: absolute;
+  right: 18px;
+  top: 12px;
+  color: #e5bf45;
+  font-size: 1.3rem;
+}
+
+.cat-card.rin {
+  background: linear-gradient(135deg, #fff 0%, #f7fcff 48%, #eaf7ff 100%);
+}
+
+.cat-card.lily {
+  background: linear-gradient(135deg, #fff 0%, #fff8fb 48%, #fff1f6 100%);
+}
+
+.cat-card h2 {
+  margin: 0 0 4px;
+  font-size: 1.25rem;
+}
+
+.cat-card p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.94rem;
+}
+
+.cat-image-card {
+  position: relative;
+  isolation: isolate;
+  display: grid;
+  place-items: center;
+  text-align: center;
+  width: min(100%, 220px);
+  margin: 0 auto;
+  padding: 4px;
+  overflow: visible;
+  border: none;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+}
+
+.cat-image-card::before {
+  content: "";
+  position: absolute;
+  z-index: 0;
+  width: 86%;
+  height: 72%;
+  border-radius: 50%;
+  filter: blur(16px);
+  opacity: 0.86;
+  transform: translateY(8px);
+}
+
+.cat-card.rin .cat-image-card::before {
+  background:
+    radial-gradient(ellipse at center, rgba(186, 226, 255, 0.82) 0%, rgba(223, 242, 255, 0.46) 48%, transparent 72%);
+}
+
+.cat-card.lily .cat-image-card::before {
+  background:
+    radial-gradient(ellipse at center, rgba(255, 203, 222, 0.78) 0%, rgba(255, 238, 246, 0.54) 50%, transparent 74%);
+}
+
+.cat-image {
+  position: relative;
+  z-index: 1;
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  min-height: 160px;
+  height: 190px;
+  max-height: 220px;
+  object-fit: contain;
+  object-position: center center;
+  border: none;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+}
+
+.cat-portrait {
+  position: relative;
+  width: 86px;
+  height: 86px;
+}
+
+.cat-portrait .face {
+  position: absolute;
+  inset: 14px 4px 2px;
+  display: block;
+  border: 3px solid #e8dce0;
+  border-radius: 48% 48% 44% 44%;
+  background: #fff;
+}
+
+.cat-portrait .ear {
+  position: absolute;
+  top: 5px;
+  width: 29px;
+  height: 31px;
+  border: 3px solid #e8dce0;
+  background: #fff;
+  transform: rotate(45deg);
+}
+
+.cat-portrait .ear::after {
+  content: "";
+  position: absolute;
+  inset: 8px;
+  background: var(--pink);
+  border-radius: 3px;
+}
+
+.cat-portrait .ear.left {
+  left: 11px;
+}
+
+.cat-portrait .ear.right {
+  right: 11px;
+}
+
+.cat-portrait .eye {
+  position: absolute;
+  top: 28px;
+  width: 7px;
+  height: 11px;
+  border-radius: 50%;
+  background: var(--ink);
+}
+
+.cat-portrait .eye.left {
+  left: 23px;
+}
+
+.cat-portrait .eye.right {
+  right: 23px;
+}
+
+.cat-portrait .nose {
+  position: absolute;
+  top: 42px;
+  left: 50%;
+  width: 8px;
+  height: 6px;
+  border-radius: 50%;
+  background: #f0a6b7;
+  transform: translateX(-50%);
+}
+
+.cat-portrait .mouth {
+  position: absolute;
+  top: 49px;
+  left: 50%;
+  width: 22px;
+  height: 10px;
+  border-bottom: 2px solid var(--ink);
+  border-radius: 0 0 18px 18px;
+  transform: translateX(-50%);
+}
+
+.weekly {
+  padding: 8px 0 58px;
+}
+
+.about-cats {
+  padding: 40px 0 28px;
+}
+
+.about-cat-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 20px;
+}
+
+.about-cat-card {
+  padding: 18px;
+  overflow: hidden;
+}
+
+.about-cat-card h3 {
+  margin: 14px 0 4px;
+  font-size: 1.25rem;
+}
+
+.about-cat-card p {
+  margin: 0;
+  color: var(--muted);
+}
+
+.lily-sheet-card {
+  background: linear-gradient(135deg, #fff, #fff8fb 54%, var(--pink));
+}
+
+.rin-sheet-card {
+  background: linear-gradient(135deg, #fff, #f7fcff 54%, var(--blue));
+}
+
+.sheet-image {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  min-height: 180px;
+  height: auto;
+  border-radius: 6px;
+  object-fit: contain;
+  background: rgba(255, 255, 255, 0.72);
+}
+
+.section-heading {
+  margin-bottom: 18px;
+}
+
+.image-section-heading {
+  max-width: 720px;
+  margin: 0 auto 16px;
+  text-align: center;
+}
+
+.image-section-heading h2 {
+  margin: 0;
+  font-size: clamp(1.55rem, 4vw, 2.15rem);
+  line-height: 1.35;
+}
+
+.image-section-heading p:last-child {
+  margin: 8px 0 0;
+  color: var(--muted);
+}
+
+.section-heading h2 {
+  margin: 0;
+  font-size: clamp(1.75rem, 4vw, 2.45rem);
+  line-height: 1.3;
+}
+
+.section-heading p:last-child {
+  margin: 8px 0 0;
+  color: var(--muted);
+}
+
+.fortune-period {
+  display: inline-flex;
+  margin-top: 12px;
+  padding: 6px 12px;
+  color: #7a6570;
+  font-size: 0.9rem;
+  font-weight: 700;
+  border: 1px dashed #f3c4d5;
+  border-radius: 8px;
+  background: rgba(255, 248, 251, 0.82);
+}
+
+.fortune-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1.12fr) minmax(340px, 0.76fr);
+  gap: 26px;
+  align-items: start;
+}
+
+.zodiac-panel {
+  padding: 26px;
+}
+
+.zodiac-list {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 20px;
+}
+
+.zodiac-button {
+  display: grid;
+  grid-template-rows: 1fr auto auto;
+  gap: 9px;
+  min-height: 232px;
+  padding: 12px 14px 16px;
+  color: var(--ink);
+  cursor: pointer;
+  border: 1px dashed #f6dbe5;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.72);
+  transition: transform 180ms ease, border-color 180ms ease, box-shadow 180ms ease;
+}
+
+.zodiac-button:hover,
+.zodiac-button:focus-visible {
+  border-color: var(--pink-strong);
+  background: rgba(255, 255, 255, 0.88);
+  box-shadow: 0 8px 18px rgba(255, 149, 184, 0.1);
+  transform: translateY(-3px);
+  outline: none;
+}
+
+.zodiac-button.active {
+  border-width: 2px;
+  border-color: #ec7fab;
+  background: linear-gradient(145deg, #fff5f9, #fff 60%, #ffeef5);
+  box-shadow: 0 0 0 4px rgba(255, 182, 207, 0.18), 0 12px 24px rgba(236, 127, 171, 0.18);
+  transform: none;
+}
+
+.zodiac-icon-frame {
+  position: relative;
+  isolation: isolate;
+  display: grid;
+  place-items: center;
+  min-height: 178px;
+  padding: 10px 6px 6px;
+  overflow: hidden;
+  border-radius: 8px;
+  border: none;
+  background: transparent;
+  box-shadow: none;
+}
+
+.zodiac-icon-frame::before {
+  content: "";
+  position: absolute;
+  z-index: 0;
+  width: 84%;
+  height: 64%;
+  border-radius: 50%;
+  background:
+    radial-gradient(ellipse at center, rgba(255, 248, 251, 0.56) 0%, rgba(255, 220, 232, 0.34) 42%, rgba(255, 233, 154, 0.14) 62%, transparent 82%);
+  filter: blur(9px);
+  opacity: 0.42;
+  transform: translateY(8px);
+}
+
+.zodiac-icon-frame::after {
+  content: none;
+}
+
+.zodiac-cat-image {
+  position: relative;
+  z-index: 1;
+  display: block;
+  width: 100%;
+  max-width: 188px;
+  height: 162px;
+  object-fit: contain;
+  object-position: center center;
+  background: transparent;
+  border: none;
+  box-shadow: none;
+  filter: none;
+}
+
+.zodiac-name {
+  display: block;
+  margin-top: 2px;
+  font-weight: 800;
+  line-height: 1.25;
+  text-align: center;
+}
+
+.zodiac-date {
+  display: block;
+  color: var(--muted);
+  font-size: 0.75rem;
+  line-height: 1.4;
+  text-align: center;
+}
+
+.fortune-detail {
+  align-self: start;
+  padding: clamp(22px, 4vw, 32px);
+}
+
+.detail-top {
+  margin-bottom: 20px;
+}
+
+.detail-header {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(96px, 120px);
+  gap: 18px;
+  align-items: start;
+}
+
+.detail-title-area {
+  min-width: 0;
+  padding-left: 16px;
+}
+
+.detail-kicker {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin: 0 0 10px;
+  color: var(--pink-strong);
+  font-size: 0.86rem;
+  font-weight: 800;
+}
+
+.detail-kicker::before {
+  content: "✧";
+  color: #d8ad34;
+}
+
+.detail-month {
+  display: inline-flex;
+  margin: 0 0 12px 16px;
+  padding: 5px 10px;
+  color: #7a6570;
+  font-size: 0.86rem;
+  font-weight: 800;
+  border: 1px dashed #f3c4d5;
+  border-radius: 8px;
+  background: rgba(255, 248, 251, 0.82);
+}
+
+.detail-sign-image-wrap {
+  position: relative;
+  isolation: isolate;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  justify-self: center;
+  text-align: center;
+  width: min(100%, 120px);
+  margin: 0;
+  transform: translateX(-20px);
+}
+
+.detail-sign-image-wrap::before {
+  content: "";
+  position: absolute;
+  z-index: 0;
+  width: 92%;
+  height: 70%;
+  border-radius: 50%;
+  background:
+    radial-gradient(ellipse at center, rgba(223, 242, 255, 0.72) 0%, rgba(255, 220, 232, 0.36) 52%, transparent 76%);
+  filter: blur(12px);
+  opacity: 0.76;
+  transform: translateY(7px);
+}
+
+.detail-sign-image {
+  position: relative;
+  z-index: 1;
+  display: block;
+  width: 100%;
+  max-width: 120px;
+  height: 118px;
+  object-fit: contain;
+  background: transparent;
+}
+
+.fortune-zodiac-image,
+.detail-zodiac-image,
+.selected-zodiac-image {
+  display: block;
+  margin: 0 auto;
+  object-fit: contain;
+  object-position: center center;
+}
+
+.fortune-zodiac-visual,
+.detail-zodiac-visual {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.fortune-detail h3 {
+  margin: 0;
+  font-size: clamp(1.6rem, 5vw, 2.15rem);
+  line-height: 1.25;
+}
+
+.detail-placeholder,
+.summary {
+  color: var(--muted);
+}
+
+.monthly-word {
+  margin: 0 0 18px;
+  padding: 14px 16px;
+  border-radius: 8px;
+  background: #fff8fb;
+  border: 1px solid #f5e2e9;
+}
+
+.monthly-word strong {
+  display: block;
+  margin-bottom: 4px;
+  color: var(--pink-strong);
+}
+
+.monthly-word .summary {
+  margin: 0;
+}
+
+.fortune-grid {
+  display: grid;
+  gap: 10px;
+  margin: 22px 0;
+}
+
+.fortune-row {
+  display: grid;
+  grid-template-columns: max-content 1fr;
+  gap: 16px;
+  padding: 12px 0;
+  border-top: 1px solid var(--line);
+}
+
+.fortune-row strong {
+  color: #675c68;
+  white-space: nowrap;
+}
+
+.fortune-row span {
+  color: var(--muted);
+}
+
+.cat-message {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+  margin: 20px 0 0;
+  padding: 16px;
+  border-radius: 8px;
+  background: linear-gradient(135deg, var(--blue), #fff7fb);
+  color: #625a65;
+  font-weight: 700;
+}
+
+.cat-message.lily-message {
+  background: linear-gradient(135deg, #fff1f6, #fff8fb 56%, #ffe3ef);
+}
+
+.cat-message.rin-message {
+  background: linear-gradient(135deg, #eaf7ff, #f7fcff 56%, #dff2ff);
+}
+
+.cat-message p {
+  margin: 0;
+}
+
+.cat-message-icon {
+  flex: 0 0 auto;
+  display: block;
+  width: 58px;
+  height: 58px;
+  object-fit: cover;
+  object-position: top center;
+  border: 2px solid rgba(255, 255, 255, 0.95);
+  border-radius: 50%;
+  background: #fff;
+  box-shadow: 0 8px 18px rgba(203, 154, 172, 0.18);
+}
+
+.cat-message.lily-message .cat-message-icon {
+  box-shadow: 0 8px 18px rgba(255, 149, 184, 0.18);
+}
+
+.cat-message.rin-message .cat-message-icon {
+  box-shadow: 0 8px 18px rgba(132, 199, 239, 0.18);
+}
+
+.news {
+  padding: 16px 0 72px;
+}
+
+.news-card {
+  display: flex;
+  gap: 18px;
+  align-items: baseline;
+  padding: 18px 20px;
+}
+
+.news-card time {
+  flex: 0 0 auto;
+  color: var(--pink-strong);
+  font-weight: 800;
+}
+
+.news-card p {
+  margin: 0;
+  color: var(--muted);
+}
+
+.site-footer {
+  position: relative;
+  z-index: 1;
+  padding: 28px 18px 34px;
+  color: var(--muted);
+  text-align: center;
+  border-top: 1px solid var(--line);
+  background: #fff;
+}
+
+.site-footer p {
+  margin: 0;
+}
+
+@media (max-width: 860px) {
+  .site-header {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .nav {
+    justify-content: flex-start;
+  }
+
+  .hero {
+    grid-template-columns: 1fr;
+    min-height: auto;
+    padding-top: 42px;
+  }
+
+  .fortune-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .zodiac-list {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 16px;
+  }
+
+  .zodiac-button {
+    min-height: 202px;
+    padding: 11px 10px 14px;
+  }
+
+  .zodiac-icon-frame {
+    min-height: 148px;
+    padding: 8px 4px 5px;
+  }
+
+  .zodiac-cat-image {
+    max-width: 164px;
+    height: 136px;
+  }
+
+  .detail-header {
+    grid-template-columns: minmax(0, 1fr) minmax(86px, 108px);
+    gap: 12px;
+  }
+
+  .detail-title-area {
+    padding-left: 10px;
+  }
+
+  .detail-month {
+    margin-left: 10px;
+  }
+
+  .detail-sign-image-wrap {
+    width: min(100%, 108px);
+    transform: translateX(-12px);
+  }
+
+  .detail-sign-image {
+    max-width: 108px;
+    height: 104px;
+  }
+
+  .about-cat-grid {
+    grid-template-columns: 1fr;
+  }
+
+}
+
+@media (max-width: 560px) {
+  .hero,
+  .about-cats,
+  .weekly,
+  .news {
+    width: min(100% - 28px, 1120px);
+  }
+
+  .cat-card {
+    padding: 20px;
+  }
+
+  h1 {
+    font-size: clamp(1.9rem, 9vw, 2.75rem);
+    line-height: 1.3;
+  }
+
+  .hero-title-line-second {
+    white-space: normal;
+  }
+
+  .cat-image-card {
+    width: 100%;
+    padding: 2px;
+  }
+
+  .cat-image-card::before {
+    width: 76%;
+    height: 62%;
+    filter: blur(13px);
+  }
+
+  .cat-image {
+    height: min(58vw, 240px);
+  }
+
+  .cat-message {
+    gap: 10px;
+    padding: 14px;
+  }
+
+  .cat-message-icon {
+    width: 50px;
+    height: 50px;
+  }
+
+  .cat-portrait {
+    width: 72px;
+    height: 72px;
+  }
+
+  .zodiac-panel {
+    padding: 16px;
+  }
+
+  .zodiac-list {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+  }
+
+  .zodiac-button {
+    min-height: 172px;
+    padding: 9px 8px 12px;
+  }
+
+  .zodiac-icon-frame {
+    min-height: 116px;
+    padding: 7px 4px 4px;
+  }
+
+  .zodiac-icon-frame::before {
+    width: 80%;
+    height: 58%;
+    filter: blur(9px);
+    opacity: 0.5;
+  }
+
+  .zodiac-cat-image {
+    max-width: min(100%, 132px);
+    height: min(28vw, 106px);
+  }
+
+  .detail-header {
+    grid-template-columns: minmax(0, 1fr) 76px;
+    gap: 10px;
+    align-items: start;
+  }
+
+  .detail-month {
+    margin-bottom: 10px;
+    margin-left: 4px;
+  }
+
+  .detail-title-area {
+    padding-left: 4px;
+  }
+
+  .detail-sign-image-wrap {
+    width: 76px;
+    transform: translateX(-4px);
+  }
+
+  .detail-sign-image-wrap::before {
+    width: 86%;
+    height: 62%;
+    filter: blur(9px);
+  }
+
+  .detail-sign-image {
+    max-width: 76px;
+    height: 74px;
+  }
+
+  .fortune-row {
+    grid-template-columns: 1fr;
+    gap: 4px;
+  }
+
+  .news-card {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 6px;
+  }
+}

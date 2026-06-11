@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>星ねこ占い</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="site-header">
+    <a class="logo" href="#top" aria-label="星ねこ占い トップへ">
+      <span class="logo-mark">☆</span>
+      星ねこ占い
+    </a>
+    <nav class="nav" aria-label="メインナビゲーション">
+      <a href="#monthly">今月の占い</a>
+      <a href="#about-cats">リンとリリー</a>
+      <a href="#news">お知らせ</a>
+    </nav>
+  </header>
+
+  <main id="top">
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="hero-copy">
+        <p class="eyebrow">Monthly Horoscope with Rin & Lily</p>
+        <h1 id="hero-title">
+          <span class="hero-title-line">星といっしょに、</span><br>
+          <span class="hero-title-line hero-title-line-second"><span class="no-break">今月のわたしを知る。</span></span>
+        </h1>
+        <p class="lead">
+          白猫のリンとリリーが、12星座の今月の流れをやさしくお届けします。
+          ちいさなヒントで、あなたの気持ちを少し軽くする月間占いです。
+        </p>
+      </div>
+
+      <div id="cats" class="cat-cards" aria-label="リンとリリーの紹介">
+        <article class="cat-card rin">
+          <figure class="cat-image-card">
+            <img src="images/rin-main-cutout.png" alt="白猫キャラクターのリン" class="cat-image">
+          </figure>
+          <div>
+            <h2>リン</h2>
+            <p>星のきらめきを読む、前向きで元気な白猫。背中をそっと押す言葉が得意。</p>
+          </div>
+        </article>
+
+        <article class="cat-card lily">
+          <figure class="cat-image-card">
+            <img src="images/lily-main-cutout.png" alt="白猫キャラクターのリリー" class="cat-image">
+          </figure>
+          <div>
+            <h2>リリー</h2>
+            <p>月の気配にそっと寄り添う、やさしく聞き上手な白猫。心を整える助言が得意。</p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section id="monthly" class="weekly" aria-labelledby="monthly-title">
+      <div class="section-heading">
+        <p class="eyebrow">This Month</p>
+        <h2 id="monthly-title">今月の12星座占い</h2>
+        <p>気になる星座の猫アイコンをタップすると、今月の運勢が表示されます。</p>
+      </div>
+
+      <div class="fortune-layout">
+        <div class="zodiac-panel">
+          <div id="zodiacList" class="zodiac-list" aria-label="12星座一覧"></div>
+        </div>
+
+        <article id="fortuneDetail" class="fortune-detail" aria-live="polite">
+          <p class="detail-kicker">星座を選んでください</p>
+          <h3>今月のメッセージ</h3>
+          <p class="detail-placeholder">
+            牡羊座から魚座まで、気になる猫アイコンをタップしてね。
+          </p>
+        </article>
+      </div>
+    </section>
+
+    <section id="about-cats" class="about-cats" aria-labelledby="about-cats-title">
+      <div class="section-heading">
+        <p class="eyebrow">About Rin & Lily</p>
+        <h2 id="about-cats-title">リンとリリーについて</h2>
+        <p>ふたりの白猫が、星と月の声をそっと集めて今月のメッセージを届けます。</p>
+      </div>
+
+      <div class="about-cat-grid">
+        <article class="about-cat-card lily-sheet-card">
+          <img src="images/lily-sheet.png" alt="リリーの紹介シート" class="sheet-image">
+          <h3>リリー</h3>
+          <p>静かな月明かりのように、心の奥にある気持ちへやさしく寄り添います。</p>
+        </article>
+
+        <article class="about-cat-card rin-sheet-card">
+          <img src="images/rin-sheet.png" alt="リンの紹介シート" class="sheet-image">
+          <h3>リン</h3>
+          <p>きらりと光る星のように、今日の一歩を明るく照らしてくれます。</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="news" class="news" aria-labelledby="news-title">
+      <div class="section-heading">
+        <p class="eyebrow">News</p>
+        <h2 id="news-title">お知らせ</h2>
+      </div>
+      <div class="news-card">
+        <time datetime="2026-06-10">2026.06.10</time>
+        <p>「星ねこ占い」の試作品を公開しました。毎月の更新に向けて準備中です。</p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>© 2026 星ねこ占い / Rin & Lily</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
