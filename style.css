@@ -191,10 +191,21 @@ h1 {
   font-size: 1.05rem;
 }
 
-.tarot-guide p {
+.tarot-guide-copy {
   flex: 1 1 250px;
+}
+
+.tarot-guide h2 {
+  margin: 0 0 4px;
+  color: #674d59;
+  font-size: 1rem;
+  line-height: 1.45;
+}
+
+.tarot-guide p {
   margin: 0;
   color: #6f6671;
+  font-size: 0.95rem;
   font-weight: 700;
   line-height: 1.7;
 }
