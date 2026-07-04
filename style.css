@@ -115,6 +115,70 @@ main {
   margin: 0 auto;
 }
 
+.ad-section {
+  width: min(1120px, calc(100% - 36px));
+  margin: 38px auto;
+  padding: 14px;
+  text-align: center;
+  border: 1px solid rgba(241, 231, 234, 0.9);
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.68);
+  box-shadow: 0 10px 24px rgba(203, 154, 172, 0.08);
+}
+
+.ad-label {
+  margin: 0 0 8px;
+  color: #9b8f99;
+  font-size: 0.72rem;
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: 0;
+}
+
+.ad-content {
+  display: grid;
+  justify-items: center;
+  overflow: hidden;
+}
+
+.ad-section a {
+  display: inline-block;
+  max-width: 100%;
+}
+
+.ad-section img {
+  max-width: 100%;
+  height: auto;
+}
+
+.ad-section a img {
+  display: block;
+  border-radius: 6px;
+}
+
+.ad-section > img[width="1"],
+.ad-content > img[width="1"] {
+  width: 1px;
+  height: 1px;
+}
+
+.ad-section-wide {
+  grid-column: 1 / -1;
+  max-width: 980px;
+  margin-top: 18px;
+  margin-bottom: 34px;
+}
+
+.ad-section-box {
+  max-width: 360px;
+  padding: 12px;
+}
+
+.ad-section-bottom {
+  margin-top: 0;
+  margin-bottom: 48px;
+}
+
 .hero {
   display: grid;
   grid-template-columns: minmax(0, 1fr) minmax(320px, 0.82fr);
@@ -967,8 +1031,24 @@ h1 {
   .hero,
   .about-cats,
   .weekly,
-  .news {
+  .news,
+  .ad-section {
     width: min(100% - 28px, 1120px);
+  }
+
+  .ad-section {
+    margin-top: 34px;
+    margin-bottom: 34px;
+    padding: 10px;
+  }
+
+  .ad-section-wide {
+    width: min(100% - 28px, 640px);
+    margin-top: 14px;
+  }
+
+  .ad-section-box {
+    width: min(100% - 48px, 340px);
   }
 
   .cat-card {
