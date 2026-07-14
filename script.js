@@ -17,27 +17,38 @@ const fortuneDataUrl = "./data/monthly-fortunes-2026-06_to_2027-05.json";
 const signKeys = Object.keys(signMeta);
 const zodiacList = document.querySelector("#zodiacList");
 const fortuneDetail = document.querySelector("#fortuneDetail");
+const fallbackFortuneText = {
+  phrase: "今月のメッセージを準備中です。",
+  total: "星の便りを整えています。少し時間をおいて、また見にきてください。",
+  love: "やさしい気持ちで過ごすと、流れが整いやすい時です。",
+  work: "無理に急がず、目の前のことをひとつずつ進めてみてください。",
+  money: "必要なものを見直すと、安心につながります。",
+  color: "ホワイト",
+  item: "小さなメモ帳",
+  message: "リンとリリーが、星からの便りを準備しています。"
+};
 
 let currentFortunes = {};
 let currentMonthLabel = "";
 
-function toFortuneObject(source, signKey) {
+function toFortuneObject(source = {}, signKey) {
   const meta = signMeta[signKey];
+  const fortuneSource = source || {};
 
   return {
     ...meta,
     signKey,
-    name: source.name || meta.name,
-    dates: source.period || meta.dates,
-    cat: source.cat || meta.cat,
-    phrase: source.message || source.phrase || "",
-    total: source.total || "",
-    love: source.love || "",
-    work: source.work || "",
-    money: source.money || "",
-    color: source.color || "",
-    item: source.item || "",
-    message: source.catMessage || source.advice || ""
+    name: fortuneSource.name || meta.name,
+    dates: fortuneSource.period || meta.dates,
+    cat: fortuneSource.cat || meta.cat,
+    phrase: fortuneSource.message || fortuneSource.phrase || fallbackFortuneText.phrase,
+    total: fortuneSource.total || fallbackFortuneText.total,
+    love: fortuneSource.love || fallbackFortuneText.love,
+    work: fortuneSource.work || fallbackFortuneText.work,
+    money: fortuneSource.money || fallbackFortuneText.money,
+    color: fortuneSource.color || fallbackFortuneText.color,
+    item: fortuneSource.item || fallbackFortuneText.item,
+    message: fortuneSource.catMessage || fortuneSource.advice || fallbackFortuneText.message
   };
 }
 
@@ -48,7 +59,7 @@ function buildMonthFortunes(monthText) {
 
   return signKeys.reduce((month, signKey) => {
     if (!monthText[signKey]) {
-      throw new Error(`Missing fortune data for sign: ${signKey}`);
+      console.error(`Missing fortune data for sign: ${signKey}`);
     }
 
     month[signKey] = toFortuneObject(monthText[signKey], signKey);
@@ -69,14 +80,32 @@ function getCurrentMonthKeyJST() {
   return `${year}-${month}`;
 }
 
+function getMonthKeys(monthlyFortunes) {
+  if (!monthlyFortunes || typeof monthlyFortunes !== "object") {
+    return [];
+  }
+
+  return Object.keys(monthlyFortunes).filter((monthKey) => {
+    return monthlyFortunes[monthKey] && typeof monthlyFortunes[monthKey] === "object";
+  }).sort();
+}
+
 function getLatestMonthKey(monthlyFortunes) {
-  const monthKeys = Object.keys(monthlyFortunes).sort();
+  const monthKeys = getMonthKeys(monthlyFortunes);
   return monthKeys[monthKeys.length - 1];
 }
 
 function getActiveMonthKey(monthlyFortunes) {
   const currentMonthKey = getCurrentMonthKeyJST();
-  return monthlyFortunes[currentMonthKey] ? currentMonthKey : getLatestMonthKey(monthlyFortunes);
+  const monthKeys = getMonthKeys(monthlyFortunes);
+
+  if (monthlyFortunes[currentMonthKey]) {
+    return currentMonthKey;
+  }
+
+  const fallbackMonthKey = getLatestMonthKey(monthlyFortunes) || monthKeys[0];
+  console.error(`No fortune data for current month: ${currentMonthKey}. Fallback month: ${fallbackMonthKey || "none"}`);
+  return fallbackMonthKey;
 }
 
 function getMonthPeriodText(monthKey) {
@@ -92,7 +121,7 @@ function getCatFace(fortune) {
 
 function createZodiacButtons() {
   zodiacList.innerHTML = signKeys.map((signKey) => {
-    const fortune = currentFortunes[signKey];
+    const fortune = currentFortunes[signKey] || toFortuneObject({}, signKey);
 
     return `
       <button class="zodiac-button" type="button" data-sign="${fortune.signKey}" aria-pressed="false">
@@ -107,7 +136,7 @@ function createZodiacButtons() {
 }
 
 function updateFortune(signKey) {
-  const fortune = currentFortunes[signKey] || currentFortunes.aries;
+  const fortune = currentFortunes[signKey] || currentFortunes.aries || toFortuneObject({}, "aries");
   const face = getCatFace(fortune);
   const messageClass = fortune.cat === "リリー" ? "lily-message" : "rin-message";
 
@@ -197,7 +226,12 @@ async function initMonthlyFortunes() {
     }
 
     const data = await response.json();
-    const monthlyFortunes = data.monthlyFortunes || {};
+    const monthlyFortunes = data && data.monthlyFortunes;
+
+    if (!monthlyFortunes || typeof monthlyFortunes !== "object") {
+      throw new Error("Fortune JSON does not have a valid monthlyFortunes object.");
+    }
+
     const currentMonthKey = getActiveMonthKey(monthlyFortunes);
 
     if (!currentMonthKey) {
