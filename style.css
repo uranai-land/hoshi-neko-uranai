@@ -108,7 +108,6 @@ main {
 }
 
 .hero,
-.about-cats,
 .weekly,
 .news {
   width: min(1120px, calc(100% - 36px));
@@ -314,7 +313,6 @@ h1 {
 
 .cat-card,
 .image-card,
-.about-cat-card,
 .fortune-detail,
 .zodiac-panel,
 .news-card {
@@ -522,50 +520,6 @@ h1 {
 
 .weekly {
   padding: 8px 0 58px;
-}
-
-.about-cats {
-  padding: 40px 0 28px;
-}
-
-.about-cat-grid {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 20px;
-}
-
-.about-cat-card {
-  padding: 18px;
-  overflow: hidden;
-}
-
-.about-cat-card h3 {
-  margin: 14px 0 4px;
-  font-size: 1.25rem;
-}
-
-.about-cat-card p {
-  margin: 0;
-  color: var(--muted);
-}
-
-.lily-sheet-card {
-  background: linear-gradient(135deg, #fff, #fff8fb 54%, var(--pink));
-}
-
-.rin-sheet-card {
-  background: linear-gradient(135deg, #fff, #f7fcff 54%, var(--blue));
-}
-
-.sheet-image {
-  display: block;
-  width: 100%;
-  max-width: 100%;
-  min-height: 180px;
-  height: auto;
-  border-radius: 6px;
-  object-fit: contain;
-  background: rgba(255, 255, 255, 0.72);
 }
 
 .section-heading {
@@ -1021,15 +975,10 @@ h1 {
     height: 104px;
   }
 
-  .about-cat-grid {
-    grid-template-columns: 1fr;
-  }
-
 }
 
 @media (max-width: 560px) {
   .hero,
-  .about-cats,
   .weekly,
   .news,
   .ad-section {
