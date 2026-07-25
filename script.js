@@ -1,8 +1,8 @@
 const signMeta = {
-  aries: { name: "牡羊座", symbol: "♈", dates: "3/21 - 4/19", image: "images/aries-cat-cutout.png", cat: "リン" },
+  aries: { name: "牡羊座", symbol: "♈", dates: "3/21 - 4/19", image: "images/aries-cat-cutout.png", cat: "リリン" },
   taurus: { name: "牡牛座", symbol: "♉", dates: "4/20 - 5/20", image: "images/taurus-cat-cutout.png", cat: "リリン" },
   gemini: { name: "双子座", symbol: "♊", dates: "5/21 - 6/21", image: "images/gemini-cat-cutout.png", cat: "リン" },
-  cancer: { name: "蟹座", symbol: "♋", dates: "6/22 - 7/22", image: "images/cancer-cat-cutout.png", cat: "リリン" },
+  cancer: { name: "蟹座", symbol: "♋", dates: "6/22 - 7/22", image: "images/cancer-cat-cutout.png", cat: "リン" },
   leo: { name: "獅子座", symbol: "♌", dates: "7/23 - 8/22", image: "images/leo-cat-cutout.png", cat: "リン" },
   virgo: { name: "乙女座", symbol: "♍", dates: "8/23 - 9/22", image: "images/virgo-cat-cutout.png", cat: "リリン" },
   libra: { name: "天秤座", symbol: "♎", dates: "9/23 - 10/23", image: "images/libra-cat-cutout.png", cat: "リン" },
