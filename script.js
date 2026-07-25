@@ -1,16 +1,16 @@
 const signMeta = {
   aries: { name: "牡羊座", symbol: "♈", dates: "3/21 - 4/19", image: "images/aries-cat-cutout.png", cat: "リン" },
-  taurus: { name: "牡牛座", symbol: "♉", dates: "4/20 - 5/20", image: "images/taurus-cat-cutout.png", cat: "リリー" },
+  taurus: { name: "牡牛座", symbol: "♉", dates: "4/20 - 5/20", image: "images/taurus-cat-cutout.png", cat: "リリン" },
   gemini: { name: "双子座", symbol: "♊", dates: "5/21 - 6/21", image: "images/gemini-cat-cutout.png", cat: "リン" },
-  cancer: { name: "蟹座", symbol: "♋", dates: "6/22 - 7/22", image: "images/cancer-cat-cutout.png", cat: "リリー" },
+  cancer: { name: "蟹座", symbol: "♋", dates: "6/22 - 7/22", image: "images/cancer-cat-cutout.png", cat: "リリン" },
   leo: { name: "獅子座", symbol: "♌", dates: "7/23 - 8/22", image: "images/leo-cat-cutout.png", cat: "リン" },
-  virgo: { name: "乙女座", symbol: "♍", dates: "8/23 - 9/22", image: "images/virgo-cat-cutout.png", cat: "リリー" },
+  virgo: { name: "乙女座", symbol: "♍", dates: "8/23 - 9/22", image: "images/virgo-cat-cutout.png", cat: "リリン" },
   libra: { name: "天秤座", symbol: "♎", dates: "9/23 - 10/23", image: "images/libra-cat-cutout.png", cat: "リン" },
-  scorpio: { name: "蠍座", symbol: "♏", dates: "10/24 - 11/22", image: "images/scorpio-cat-cutout.png", cat: "リリー" },
+  scorpio: { name: "蠍座", symbol: "♏", dates: "10/24 - 11/22", image: "images/scorpio-cat-cutout.png", cat: "リリン" },
   sagittarius: { name: "射手座", symbol: "♐", dates: "11/23 - 12/21", image: "images/sagittarius-cat-cutout.png", cat: "リン" },
-  capricorn: { name: "山羊座", symbol: "♑", dates: "12/22 - 1/19", image: "images/capricorn-cat-cutout.png", cat: "リリー" },
+  capricorn: { name: "山羊座", symbol: "♑", dates: "12/22 - 1/19", image: "images/capricorn-cat-cutout.png", cat: "リリン" },
   aquarius: { name: "水瓶座", symbol: "♒", dates: "1/20 - 2/18", image: "images/aquarius-cat-cutout.png", cat: "リン" },
-  pisces: { name: "魚座", symbol: "♓", dates: "2/19 - 3/20", image: "images/pisces-cat-cutout.png", cat: "リリー" }
+  pisces: { name: "魚座", symbol: "♓", dates: "2/19 - 3/20", image: "images/pisces-cat-cutout.png", cat: "リリン" }
 };
 
 const fortuneDataUrl = "./data/monthly-fortunes-2026-06_to_2027-05.json";
@@ -25,7 +25,7 @@ const fallbackFortuneText = {
   money: "必要なものを見直すと、安心につながります。",
   color: "ホワイト",
   item: "小さなメモ帳",
-  message: "リンとリリーが、星からの便りを準備しています。"
+  message: "リンとリリンが、星からの便りを準備しています。"
 };
 
 let currentFortunes = {};
@@ -114,8 +114,8 @@ function getMonthPeriodText(monthKey) {
 }
 
 function getCatFace(fortune) {
-  return fortune.cat === "リリー"
-    ? { src: "images/lily-face-normal.png", alt: "リリーの顔アイコン" }
+  return fortune.cat === "リリン"
+    ? { src: "images/lily-face-normal.png", alt: "リリンの顔アイコン" }
     : { src: "images/rin-face-normal.png", alt: "リンの顔アイコン" };
 }
 
@@ -138,7 +138,7 @@ function createZodiacButtons() {
 function updateFortune(signKey) {
   const fortune = currentFortunes[signKey] || currentFortunes.aries || toFortuneObject({}, "aries");
   const face = getCatFace(fortune);
-  const messageClass = fortune.cat === "リリー" ? "lily-message" : "rin-message";
+  const messageClass = fortune.cat === "リリン" ? "lily-message" : "rin-message";
 
   fortuneDetail.innerHTML = `
     <div class="detail-top">
@@ -203,7 +203,7 @@ function showLoadingState() {
   fortuneDetail.innerHTML = `
     <p class="detail-kicker">月の便りを準備中</p>
     <h3>今月のメッセージ</h3>
-    <p class="detail-placeholder">リンとリリーが、今月の星を集めています。</p>
+    <p class="detail-placeholder">リンとリリンが、今月の星を集めています。</p>
   `;
 }
 
